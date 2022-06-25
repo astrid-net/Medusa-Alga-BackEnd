@@ -27,7 +27,7 @@ def liquidity_volume():
     liquidity_90d = 0
 
     
-    conn = sqlite3.connect('Data/ocean_data.db')
+    conn = sqlite3.connect('ocean_data.db')
     cursor = conn.cursor()
 
     try:
@@ -108,7 +108,7 @@ def txs_volume():
     liquidity_txs_90d = 0
 
     
-    conn = sqlite3.connect('Data/ocean_data.db')
+    conn = sqlite3.connect('ocean_data.db')
     cursor = conn.cursor()
 
     try:
@@ -157,7 +157,7 @@ def average_liquidity_provided():
     address = request.args.get('address', None)
     providers = []
     
-    conn = sqlite3.connect('Data/ocean_data.db')
+    conn = sqlite3.connect('ocean_data.db')
     cursor = conn.cursor()
 
     query = "SELECT * FROM '{0}_txs'".format(address)
