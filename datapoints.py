@@ -16,7 +16,7 @@ def check_liquidity_by_subgraph(address):
 
 @app.route('/liquidity_volume', methods=['GET'])
 def liquidity_volume():
-    address = request.args.get('address', default = 1, type = str)
+    address = request.args.get('address', default = 1, type = str).lower()
     now = datetime.now()
     
     liquidity_12h = 0
@@ -97,7 +97,7 @@ def liquidity_volume():
                
 @app.route('/txs_volume', methods=['GET'])
 def txs_volume():
-    address = request.args.get('address', default = 1, type = str)
+    address = request.args.get('address', default = 1, type = str).lower()
     now = datetime.now()
     
     liquidity_txs_12h = 0
@@ -154,7 +154,7 @@ def txs_volume():
 
 @app.route('/average_liquidity_provided', methods=['GET'])
 def average_liquidity_provided():
-    address = request.args.get('address', None)
+    address = request.args.get('address', None).lower()
     providers = []
     
     conn = sqlite3.connect('ocean_data.db')
